@@ -1,27 +1,17 @@
-//
-//  ViewController.swift
-//  CryptoCrazy
-//
-//  Created by Murat Yıldırım on 19.11.2023.
-//
 
 import UIKit
 import RxSwift
 import RxCocoa
 
 class ViewController: UIViewController {
-
-  
   //MARK: IBOutlet
-  
   @IBOutlet var tableView: UITableView!
-  
   @IBOutlet var indicator: UIActivityIndicatorView!
-  
   //MARK: Variables
   var cryptoList = [Crypto]()
   let cryptoVM = CryptoViewModel()
   let disposeBag = DisposeBag()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
@@ -33,8 +23,6 @@ class ViewController: UIViewController {
   func setupBindigs() {
     
     cryptoVM.loading.bind(to: self.indicator.rx.isAnimating).disposed(by: disposeBag)
-    
-    
     cryptoVM.error.observe(on: MainScheduler.asyncInstance).subscribe { errorString in
       print(errorString)
     }.disposed(by: disposeBag)
@@ -44,8 +32,6 @@ class ViewController: UIViewController {
       self.tableView.reloadData()
     }.disposed(by: disposeBag)
   }
-
-
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,7 +47,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return cryptoList.count
   }
-  
-  
 }
 

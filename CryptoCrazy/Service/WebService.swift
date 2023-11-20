@@ -1,9 +1,3 @@
-//
-//  WebService.swift
-//  CryptoCrazy
-//
-//  Created by Murat Yıldırım on 20.11.2023.
-//
 
 import Foundation
 
@@ -21,9 +15,6 @@ class WebService {
           completion(.failure(CryptoError.parseError))
         }
       }
-        
-      
     }.resume()
   }
-  
 }
