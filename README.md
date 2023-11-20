@@ -17,3 +17,4 @@
     Escaping
     Binding
 
+![Simulator Screenshot - iPhone 15 Pro - 2023-11-20 at 13 27 05](https://github.com/muratyildirimm/CryptoAppWithRxSwift/assets/109426253/7b252acc-1680-41a1-baa5-9470cffc2f7a)
